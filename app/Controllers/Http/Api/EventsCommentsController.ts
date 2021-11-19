@@ -94,7 +94,17 @@ export default class EventsCommentsController {
     })
   }
 
-  public async destroy() {
-    // TODO: Implement delete using soft delete
+  public async destroy({ params }: HttpContextContract) {
+    // eslint-disable-next-line
+    const { id, event_id } = params
+
+    const comment = await EventsComment.query()
+      .where('id', id)
+      .where('event_id', event_id)
+      .firstOrFail()
+
+    await comment.delete()
+
+    return comment
   }
 }

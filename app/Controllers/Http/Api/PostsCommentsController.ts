@@ -95,7 +95,17 @@ export default class PostsCommentsController {
     })
   }
 
-  public async destroy() {
-    // TODO: Implement delete using soft delete
+  public async destroy({ params }: HttpContextContract) {
+    // eslint-disable-next-line
+    const { id, post_id } = params
+
+    const comment = await PostsComment.query()
+      .where('id', id)
+      .where('post_id', post_id)
+      .firstOrFail()
+
+    await comment.delete()
+
+    return comment
   }
 }

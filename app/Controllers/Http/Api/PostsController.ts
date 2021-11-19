@@ -77,7 +77,13 @@ export default class PostsController {
     })
   }
 
-  public async destroy() {
-    // TODO: Implement delete post using soft delete
+  public async destroy({ params }: HttpContextContract) {
+    const { id } = params
+
+    const post = await Post.query().where('id', id).firstOrFail()
+
+    await post.delete()
+
+    return post
   }
 }

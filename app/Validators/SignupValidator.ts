@@ -24,7 +24,9 @@ export default class SignupValidator {
    *    ```
    */
   public schema = schema.create({
-    email: schema.string({ trim: true }, [rules.unique({ table: 'users', column: 'email' })]),
+    email: schema.string({ trim: true }, [
+      rules.unique({ table: 'users', column: 'email', where: { deleted_at: null } }),
+    ]),
     password: schema.string({ trim: true }),
   })
 
