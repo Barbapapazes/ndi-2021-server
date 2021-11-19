@@ -1,8 +1,10 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { compose } from '@ioc:Adonis/Core/Helpers'
+import { SoftDeletes } from '@ioc:Adonis/Addons/LucidSoftDeletes'
 import Profile from './Profile'
 
-export default class PostsComment extends BaseModel {
+export default class PostsComment extends compose(BaseModel, SoftDeletes) {
   @column({ isPrimary: true })
   public id: number
 

@@ -76,4 +76,14 @@ export default class EventsController {
       },
     })
   }
+
+  public async destroy({ params }: HttpContextContract) {
+    const { id } = params
+
+    const event = await Event.query().where('id', id).firstOrFail()
+
+    await event.delete()
+
+    return event
+  }
 }

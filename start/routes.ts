@@ -34,7 +34,10 @@ Route.group(() => {
   .namespace('App/Controllers/Http/Auth')
 
 Route.group(() => {
+  Route.delete('/users/:id', 'UsersController.destroy')
+
   Route.get('/me', 'ProfilesController.me')
+  Route.patch('/profiles/:id', 'ProfilesController.update')
 
   Route.resource('/posts', 'PostsController').apiOnly()
   Route.resource('posts.comments', 'PostsCommentsController').apiOnly()
