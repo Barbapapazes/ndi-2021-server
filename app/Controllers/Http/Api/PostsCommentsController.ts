@@ -67,7 +67,7 @@ export default class PostsCommentsController {
     })
   }
 
-  public async update({ params, request, auth }: HttpContextContract) {
+  public async update({ params, request }: HttpContextContract) {
     // eslint-disable-next-line
     const { id, post_id } = params
 

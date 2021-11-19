@@ -35,6 +35,7 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get('/me', 'ProfilesController.me')
+  Route.patch('/profiles/:id', 'ProfilesController.update')
 
   Route.resource('/posts', 'PostsController').apiOnly()
   Route.resource('posts.comments', 'PostsCommentsController').apiOnly()
