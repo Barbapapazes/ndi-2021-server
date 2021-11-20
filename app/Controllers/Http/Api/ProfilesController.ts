@@ -13,7 +13,7 @@ export default class ProfilesController {
       fields: ['user_id', 'pseudo', 'user'],
       relations: {
         user: {
-          fields: ['email'],
+          fields: ['email', 'messaging_token'],
         },
       },
     })

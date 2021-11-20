@@ -2,6 +2,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
 import LoginValidator from 'App/Validators/LoginValidator'
 import SignupValidator from 'App/Validators/SignupValidator'
+import { cuid } from '@ioc:Adonis/Core/Helpers'
 
 export default class AuthController {
   public async login({ request, auth }: HttpContextContract) {
@@ -29,6 +30,7 @@ export default class AuthController {
 
     user.email = email
     user.password = password
+    user.messagingToken = cuid()
 
     await user.save()
     await user.related('profile').create({ userId: user.id })
