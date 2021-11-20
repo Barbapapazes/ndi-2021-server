@@ -18,6 +18,9 @@ export default class User extends compose(BaseModel, SoftDeletes) {
   @column()
   public rememberMeToken?: boolean
 
+  @column()
+  public messagingToken?: string
+
   @hasOne(() => Profile)
   public profile: HasOne<typeof Profile>
 
