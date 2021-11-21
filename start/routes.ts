@@ -44,6 +44,8 @@ Route.group(() => {
 
   Route.resource('/events', 'EventsController').apiOnly()
   Route.resource('events.comments', 'EventsCommentsController').apiOnly()
+
+  Route.resource('/messages', 'MessagesController').apiOnly()
 })
   .prefix('api')
   .middleware('auth')
