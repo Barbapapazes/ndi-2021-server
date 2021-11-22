@@ -10,7 +10,7 @@ export default class ProfilesController {
     await profile.load('user')
 
     return profile.serialize({
-      fields: ['user_id', 'pseudo', 'user'],
+      fields: ['user_id', 'pseudo', 'user', 'avatar'],
       relations: {
         user: {
           fields: ['email', 'messaging_token'],
@@ -31,7 +31,7 @@ export default class ProfilesController {
     await profile.load('user')
 
     return profile.serialize({
-      fields: ['user_id', 'pseudo', 'user'],
+      fields: ['user_id', 'pseudo', 'user', 'avatar'],
       relations: {
         user: {
           fields: ['email'],

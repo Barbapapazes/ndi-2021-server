@@ -37,6 +37,8 @@ Route.group(() => {
   Route.delete('/users/:id', 'UsersController.destroy')
 
   Route.get('/profiles/me', 'ProfilesController.me')
+  Route.patch('/profiles/me/avatar', 'ProfilesAvatarsController.update')
+  Route.delete('/profiles/me/avatar', 'ProfilesAvatarsController.destroy')
   Route.patch('/profiles/:id', 'ProfilesController.update')
 
   Route.resource('/posts', 'PostsController').apiOnly()

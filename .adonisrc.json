@@ -23,7 +23,8 @@
     "@adonisjs/lucid",
     "@adonisjs/session",
     "@adonisjs/auth",
-    "adonis-lucid-soft-deletes"
+    "adonis-lucid-soft-deletes",
+    "@adonisjs/attachment-lite"
   ],
   "aceProviders": [
     "@adonisjs/repl"

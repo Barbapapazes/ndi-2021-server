@@ -7,6 +7,7 @@ export default class Profiles extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('user_id')
       table.string('pseudo').nullable()
+      table.json('avatar').nullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

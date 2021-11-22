@@ -1,7 +1,7 @@
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import { schema } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class SignupValidator {
+export default class ProfileAvatarValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -24,16 +24,9 @@ export default class SignupValidator {
    *    ```
    */
   public schema = schema.create({
-    email: schema.string({ trim: true }, [
-      rules.unique({ table: 'users', column: 'email', where: { deleted_at: null } }),
-    ]),
-    pseudo: schema.string({ trim: true }, [
-      rules.unique({ table: 'profiles', column: 'pseudo', where: { deleted_at: null } }),
-    ]),
-    password: schema.string({ trim: true }),
     avatar: schema.file({
       size: '2mb',
-      extnames: ['jpg', 'gif', 'png'],
+      extnames: ['jpg', 'png', 'gif'],
     }),
   })
 
